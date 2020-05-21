@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
 Route::get('/about', function () {
     return "Hi about page";
 });
@@ -27,15 +28,23 @@ Route::get('/contact', function () {
 
 Route::get('/post/{id}/{name}', function ($id, $name) {
     return "This is post number ".$id." ".$name;
-});
+}); */
 
 /* rename long url with nickname route */
-Route::get('admin/posts/example', array('as'=>'admin.home', function () {
+/* Route::get('admin/posts/example', array('as'=>'admin.home', function () {
 
     $url = route('admin.home');
     return "This url is " . $url;
 
-}));
+})); */
+
+// Route::get('/post/{id}', 'PostsController@index');
+
+//Route::resource('posts', 'PostsController');
+
+//Route::get('post/{id}', 'PostsController@show_post');
+
+Route::get('post/{id}/{name}', 'PostsController@show_post');
 
 Route::group(['middleware' => ['web']], function () {
     
