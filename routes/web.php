@@ -46,6 +46,12 @@ Route::get('/post/{id}/{name}', function ($id, $name) {
 
 Route::get('post/{id}/{name}', 'PostsController@show_post');
 
+// Route::get('/contact', function () {
+//     return view('contact');
+// });
+
+Route::get('contact', 'PostsController@contact');
+
 Route::group(['middleware' => ['web']], function () {
     
 });
