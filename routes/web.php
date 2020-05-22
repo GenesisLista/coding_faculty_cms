@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 /*
 Route::get('/about', function () {
@@ -44,13 +44,49 @@ Route::get('/post/{id}/{name}', function ($id, $name) {
 
 //Route::get('post/{id}', 'PostsController@show_post');
 
-Route::get('post/{id}/{name}', 'PostsController@show_post');
+// Route::get('post/{id}/{name}', 'PostsController@show_post');
 
 // Route::get('/contact', function () {
 //     return view('contact');
 // });
 
-Route::get('contact', 'PostsController@contact');
+// Route::get('contact', 'PostsController@contact');
+
+/* Database Raw SQL Queries PDO */
+// Route::get('/insert', function () {
+//     DB::insert('INSERT INTO posts(title, content) VALUES(?, ?)', ['PHP with Laravel', 'Laravel is the best thing that happened to PHP']);
+// });
+
+// Route::get('read', function () {
+
+//     $results = DB::select('SELECT * FROM posts WHERE id = ?', [1]);
+
+//     // return $results;
+//     return var_dump($results);
+
+//     /* foreach($results as $post){
+//         return $post->title;
+//     } */
+
+// });
+
+// Route::get('update', function () {
+
+//     $update = DB::update('UPDATE posts SET title = "Update Title" WHERE id = ?', [1]);
+
+//     return $update;
+
+// });
+
+Route::get('delete', function () {
+
+    $delete = DB::delete('DELETE FROM posts WHERE id = ?', [1]);
+
+    return $delete;
+
+});
+
+
 
 Route::group(['middleware' => ['web']], function () {
     
